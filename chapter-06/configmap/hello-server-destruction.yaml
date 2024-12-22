@@ -20,19 +20,19 @@ spec:
         app: hello-server
     spec:
       containers:
-      - name: hello-server
-        image: blux2/hello-server:1.4
-        env:
-        - name: PORT
-          valueFrom:
-            configMapKeyRef:
-              name: hello-server-configmap
-              key: PORT
-        - name: HOST
-          valueFrom:
-            configMapKeyRef:
-              name: hello-server-configmap
-              key: HOST
+        - name: hello-server
+          image: blux2/hello-server:1.4
+          env:
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: hello-server-configmap
+                  key: PORT
+            - name: HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: hello-server-configmap
+                  key: HOST
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -40,3 +40,4 @@ metadata:
   name: hello-server-configmap
 data:
   PORT: "8081"
+  HOST: "localhost"

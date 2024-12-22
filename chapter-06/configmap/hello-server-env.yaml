@@ -16,14 +16,14 @@ spec:
         app: hello-server
     spec:
       containers:
-      - name: hello-server
-        image: blux2/hello-server:1.4
-        env:
-        - name: PORT
-          valueFrom:
-            configMapKeyRef:
-              name: hello-server-configmap
-              key: PORT
+        - name: hello-server
+          image: blux2/hello-server:1.4
+          env:
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: hello-server-configmap
+                  key: PORT
 ---
 apiVersion: v1
 kind: ConfigMap
